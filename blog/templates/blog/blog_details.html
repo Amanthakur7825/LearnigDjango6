@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#2 Templates</title>
+</head>
+<body>
+    <h1>blog filter page.</h1>
+     {%comment%} text filter {%endcomment%}
+     <p><b>Title (Normal):</b> {{post.title}} </p>
+     <p><b>Title (Uppercase):</b> {{post.title|upper}} </p>
+     <p><b>Title (Lowercase):</b> {{post.title|lower}} </p>
+     <p><b>capital:</b> {{post.title|capfirst}} </p>
+     <p><b>Title case:</b> {{post.title|title}} </p>
+     <p><b>truncatechar:</b> {{post.title|truncatechars:4}} </p>
+     <p><b>truncatewords:</b> {{post.title|truncatewords:2}} </p>
+     <p><b>line break:</b> {{post.title|linebreaks}} </p>
+     <hr>
+
+        {%comment%} number filter add {%endcomment%}
+        <p><b>Original number</b> {{post.number}} </p>
+        <p><b>Original number(+5)</b> {{post.number|add:5}} </p>
+
+         {%comment%} number filter add {%endcomment%}
+         {%if post.number|divisibleby:2%}
+         <p>{{post.number}} is even</p>
+         {%else%}
+         <p>{{post.number}} is odd</p>
+         {%endif%}
+
+         {%comment%} List filter {%endcomment%}
+         <p><b>list tag(first)</b> {{post.tag|first}} </p>
+         <p><b>list tag(last)</b> {{post.tag|last}} </p>
+         <p><b>total tag </b> {{post.tag|length}} </p>
+         <p><b>slice tag</b> {{post.tag|slice:2}} </p>
+         <p><b>join tag</b> {{post.tag|join:", "}} </p>
+
+</body>
+</html>
